@@ -1,4 +1,4 @@
-# vimrc
+# Turnspike Vimrc
 The official Turnspike nVIM configuration.
 
 # Installation
