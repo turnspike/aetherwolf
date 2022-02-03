@@ -62,6 +62,7 @@ alias g="git"
 alias nv="nvim"
 alias r="ranger"
 alias c='pygmentize -O style=borland -f console256 -g' # `cat` with pretty colors. requires: pip install -U Pygments
+alias yt-audio="youtube-dl --audio-format best -x" # download best audio file available from a yt URL 
 
 # FIXME: the below started throwing a floating point error for no apparent reason.
 ## make vim follow symlinks into their actual working dir to assist context-sensitive plugins such as fugitive and fireplace
