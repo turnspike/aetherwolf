@@ -9,7 +9,7 @@ c_error="$(tput setaf 7)$(tput setab 1)"
 
 # -- pretty print message
 aw_msg () {
-    printf "$c_msg" $1 "$c_reset"
+    printf $c_msg" "$1" "$c_reset"\n"
 }
 
 # -- pretty print title

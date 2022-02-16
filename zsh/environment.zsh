@@ -79,6 +79,7 @@ eval "$(rbenv init - zsh)"
 # load ssh key for github etc (only if not already loaded)
 # http://unix.stackexchange.com/questions/132791/have-ssh-add-be-quiet-if-key-already-there
 if [ -f ~/.ssh/id_rsa ]; then
-    aw_msg "loading ~/.ssh/id_rsa"
-    ssh-add -l | grep -q `ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}'` || ssh-add ~/.ssh/id_rsa
+  aw_msg "loading ~/.ssh/id_rsa"
+  export APPLE_SSH_ADD_BEHAVIOR="macos" #"openssh" # or "macos"
+  ssh-add -l | grep -q `ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}'` || ssh-add ~/.ssh/id_rsa
 fi

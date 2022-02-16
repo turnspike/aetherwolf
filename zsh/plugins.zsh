@@ -3,7 +3,7 @@
 # UNCOMMENT TO BENCHMARK
 #BENCHMARK=1 && zmodload zsh/zprof
 
-# ---- use homeschick for dotfile mgmt:
+# ---- use homeshick for dotfile mgmt:
 #   https://github.com/andsens/homeshick
 
 #export HS_HOME=$HOME/.homesick/repos/homeshick

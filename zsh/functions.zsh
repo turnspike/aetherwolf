@@ -1,18 +1,23 @@
 #!/bin/zsh
 
-## find file with pattern in name
-function ff() { find . ! -readable -prune -o -type f -iname '*'"$*"'*' -ls -print; }
+## find file with pattern in name 
+function ff() { 
+  find . ! -readable -prune -o -type f -iname '*'"$*"'*' -ls -print;
+}
 
-## create ZIP archive of a file or folder
-function zipf() { zip -r "${1%%/}.zip" "$1" ; }
+## create ZIP archive of a file or folder 
+function zipf() { 
+  zip -r "${1%%/}.zip" "$1" ;
+}
 
-## make directories and files access rights sane
-function fixperms() { chmod -R u=rwX,g=rX,o= "$@" ; }
+## make directories and files access rights sane 
+function fixperms() { 
+  chmod -R u=rwX,g=rX,o="$@";
+}
 
-extract() {
-    if [ -f $1  ] ; then
-        case $1 in
-            *.tar.bz2)   tar xjf $1     ;;
+## easy extraction of archives
+function extract() { 
+  if [ -f $1  ] ; then case $1 in *.tar.bz2)   tar xjf $1     ;;
             *.tar.gz)    tar xzf $1     ;;
             *.bz2)       bunzip2 $1     ;;
             *.rar)       unrar e $1     ;;
