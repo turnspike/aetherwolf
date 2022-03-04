@@ -23,9 +23,6 @@ if [[ ! -d $ZPLUG_HOME ]]; then
 	source $ZPLUG_HOME/init.zsh && zplug update --self
 fi
 
-#GEOMETRY_ASYNC_TMP_FILENAME=~/.geometry_rprompt_info
-#GEOMETRY_PROMPT_PLUGINS=(exec_time git)
-
 # ---- init zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -37,6 +34,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 #zplug "zsh-users/zsh-syntax-highlighting"
 #zplug "plugins/vi-mode", from:oh-my-zsh
 
+# -- fzf autocompletes history with ctrl-r and filenames with ctrl-t
 zplug "junegunn/fzf-bin"
 #export FZF_DEFAULT_COMMAND='ag -g ""'
 #export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
@@ -44,8 +42,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 source ~/.fzf.zsh
 
-zplug "jocelynmallon/zshmarks" # nice folder bookmarking
-#zplug "themes/pygmalion", from:oh-my-zs
 zplug "plugins/ssh-agent", from:oh-my-zsh, ignore:oh-my-zsh.sh
 
 zplug "b4b4r07/enhancd", use:init.sh # better cd
@@ -60,13 +56,10 @@ alias cdr="cd-gitroot"
 # zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 #zplug "themes/af-magic", from:oh-my-zsh
 #zplug "themes/clean", from:oh-my-zsh
-# zplug "plugins/colorize", from:oh-my-zsh, ignore:oh-my-zsh.sh
 zplug "plugins/colorize", from:oh-my-zsh, ignore:oh-my-zsh.sh
 #zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "chrissicool/zsh-256color" # ZSH plugin enhancesheerminal environment with 256 colors.
 #zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# Async for zsh, used by pure theme
-# jkzplug "mafredri/zsh-async", from:github, defer:0
 #zplug "willghatch/zsh-snippets" # snippet mgr, binds to m-x
 
 # # ---- snippets (using pet)
@@ -94,17 +87,18 @@ zplug "zsh-users/zsh-history-substring-search", from:github, defer:2 # Fish shel
 zplug "plugins/git", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
 # TODO: lazy load these to improve startup time
 zplug "plugins/heroku", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
-#zplug "plugins/rbenv", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
+zplug "plugins/rbenv", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
 zplug "plugins/bundler", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
 zplug "plugins/gem", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
-#zplug "plugins/npm", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
-#zplug "plugins/yarn", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
+zplug "plugins/npm", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
+zplug "plugins/yarn", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:2
 
 # ---- theme
-#zplug "frmendes/geometry" # nice theme
-#GEOMETRY_SYMBOL_PROMPT="∴"
-#zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
+SPACESHIP_PROMPT_DEFAULT_PREFIX="" # don't show "via" text before language info
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+# type z directory<tab> for smart navigation
+zplug "agkozak/zsh-z"
 
 # ---- install packages as needed
 if ! zplug check --verbose; then
@@ -130,15 +124,5 @@ zplug load
 
 # load fzf shell extensions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# autojump shell extension
-#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-#-- use z for navigation
-# https://github.com/rupa/z
-if [ -e $HOME/bin/z/z.sh ]; then
-	#TODO set $_Z_DATA to use ~/.cache
-	. $HOME/bin/z/z.sh
-	aw_msg "loaded z for navigation"
-fi
 
 aw_msg "zplug started."
