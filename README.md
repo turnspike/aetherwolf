@@ -2,6 +2,10 @@
 
 _glide through shell like a predator._
 
+ætherwolf is a modular zsh configuration with optional nvim settings. Tricked out and optimized for comfort. The end goal of this configuration is to have every zsh setting categorized and commented as a learning resource.
+
+# installing
+
 All installation steps are non-destructive; they tap into your existing configuration files, or create stubs if you have none. Recommended terminal color theme is [Gruvbox Dark](https://github.com/morhetz/gruvbox-contrib).
 
 # :nut_and_bolt: installing base package
