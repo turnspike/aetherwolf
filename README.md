@@ -4,16 +4,16 @@ _glide through shell like a predator._
 
 ætherwolf is a modular zsh configuration with optional nvim settings. Tricked out and optimized for comfort. The end goal of this configuration is to have every zsh setting categorized and commented as a learning resource.
 
-# installing
+# :nut_and_bolt: installing
 
 All installation steps are non-destructive; they tap into your existing configuration files, or create stubs if you have none. Recommended terminal color theme is [Gruvbox Dark](https://github.com/morhetz/gruvbox-contrib).
 
-# :nut_and_bolt: installing base package
+# installing base package
 
     mkdir -p ~/.config                                                                           # create .config dir if needed
     git clone https://github.com/turnspike/aetherwolf.git ~/.config/aetherwolf                   # wolf it up
     
-# :nut_and_bolt: installing nvim mod
+# installing nvim mod
 
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim                          # install vim plugin manager
@@ -22,7 +22,7 @@ All installation steps are non-destructive; they tap into your existing configur
     echo -e "source ~/.config/aetherwolf/nvim/init.vim" >> ~/.config/nvim/init.vim               # tap into nvim config
     nvim +PlugInstall +qall                                                                      # install new vim plugins
 
-# :nut_and_bolt: installing zsh mod
+# installing zsh mod
     brew install exa fzf chruby                                                                  # install homebrew dependencies
     /usr/local/opt/fzf/install                                                                   # install fzf autocomplete (recommended options - enable fuzzy: yes, enable bindings: yes, update shell cfg: no)
     touch ~/.zshenv && echo -e "source ~/.config/aetherwolf/zsh/environment.zsh" >> ~/.zshenv.   # tap into zsh env config
