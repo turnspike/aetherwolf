@@ -81,5 +81,7 @@ eval "$(rbenv init - zsh)"
 if [ -f ~/.ssh/id_rsa ]; then
   aw_msg "loading ~/.ssh/id_rsa"
   export APPLE_SSH_ADD_BEHAVIOR="macos" #"openssh" # or "macos"
-  ssh-add -l | grep -q `ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}'` || ssh-add ~/.ssh/id_rsa
+  eval "$(ssh-agent)"
+  ssh-add ~/.ssh/id_rsa
+  #ssh-add -l | grep -q `ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}'` || ssh-add ~/.ssh/id_rsa
 fi
