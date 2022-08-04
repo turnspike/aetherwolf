@@ -2,29 +2,37 @@
 
 _glide through shell like a predator._
 
-ætherwolf is a modular zsh configuration with optional nvim settings. Tricked out and optimized for comfort. The end goal of this configuration is to have every zsh setting categorized and commented as a learning resource.
+ætherwolf is a modular zsh configuration. Tricked out and optimized for comfort. The end goal of this configuration is to have every zsh setting categorized and commented as a learning resource (still a work in progress).
 
 # :nut_and_bolt: installing
 
 All installation steps are non-destructive; they tap into your existing configuration files, or create stubs if you have none. Recommended terminal color theme is [Gruvbox Dark](https://github.com/morhetz/gruvbox-contrib).
 
-# installing base package
-
     mkdir -p ~/.config                                                                           # create .config dir if needed
     git clone https://github.com/turnspike/aetherwolf.git ~/.config/aetherwolf                   # wolf it up
-    
-# installing nvim mod
-
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim                          # install vim plugin manager
-    
-    mkdir -p ~/.config/nvim && touch ~/.config/nvim/init.vim                                     # ensure nvim config file exists
-    echo -e "source ~/.config/aetherwolf/nvim/init.vim" >> ~/.config/nvim/init.vim               # tap into nvim config
-    nvim +PlugInstall +qall                                                                      # install new vim plugins
-
-# installing zsh mod
     brew install exa fzf chruby                                                                  # install homebrew dependencies
     /usr/local/opt/fzf/install                                                                   # install fzf autocomplete (recommended options - enable fuzzy: yes, enable bindings: yes, update shell cfg: no)
     touch ~/.zshenv && echo -e "source ~/.config/aetherwolf/zsh/environment.zsh" >> ~/.zshenv.   # tap into zsh env config
     touch ~/.zshsrc; echo -e "export ZCONF=~/.config/aetherwolf/zsh" >> ~/.zshrc; echo -e "" >> ~/.zshrc
     source $ZCONF/init.zsh && echo -e "source $ZCONF/init.zsh" >> ~/.zshrc                       # tap into zsh main config
+
+
+# :link: key binds
+
+|Key Binding|Description|
+|---|---|
+|<kbd>alt</kbd> + <kbd>c</kbd>|Fuzzy search in subdirectories|
+|<kbd>ctrl</kbd> + <kbd>r</kbd>|Fuzzy search history|
+|appname <kbd>ctrl</kbd> + <kbd>t</kbd>|Fuzzy open file eg vim <kbd>ctrl</kbd> + <kbd>t</kbd> html|
+
+# :shell: shell helpers
+List shell aliases:
+```sh
+alias
+```
+# :card_index_dividers: git aliases
+* TBC
+
+# :spiral_notepad: TODO
+* Streamline installer script as per [ninjarc](https://github.com/turnspike/ninjarc)
+* Add screenshot of shell appearance
