@@ -11,6 +11,7 @@ All installation steps are non-destructive; they tap into your existing configur
     mkdir -p ~/.config                                                                           # create .config dir if needed
     git clone https://github.com/turnspike/aetherwolf.git ~/.config/aetherwolf                   # wolf it up
     brew install exa fzf chruby                                                                  # install homebrew dependencies
+    # sudo apt install exa fzf chruby # for Ubuntu Linux
     /usr/local/opt/fzf/install                                                                   # install fzf autocomplete (recommended options - enable fuzzy: yes, enable bindings: yes, update shell cfg: no)
     touch ~/.zshenv && echo -e "source ~/.config/aetherwolf/zsh/environment.zsh" >> ~/.zshenv.   # tap into zsh env config
     touch ~/.zshsrc; echo -e "export ZCONF=~/.config/aetherwolf/zsh" >> ~/.zshrc; echo -e "" >> ~/.zshrc
